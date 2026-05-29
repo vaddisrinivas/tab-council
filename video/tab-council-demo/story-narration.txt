@@ -4,6 +4,8 @@ Create a Chrome tab group named tab-council. Put ChatGPT, Claude, Gemini, Perple
 
 Those tabs become council seats.
 
+There are extensions that ask many AIs at once. This runs a council.
+
 Assign roles: Member, Judge, Validator, Observer, or Exclude.
 
 Round one asks every member for an independent answer. Round two shares the answers and asks for polite critique. If disagreement remains, Round three asks for final positions.
