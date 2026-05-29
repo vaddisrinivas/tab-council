@@ -1,13 +1,15 @@
-On GitHub, every model-council project tells the same story: one prompt is not enough.
+Tab Council is an extension-based Model Council.
 
-Karpathy's LLM Council sends a question to several models, asks them to review each other, then lets a chairman write the final answer.
+Create a Chrome tab group named tab-council. Put ChatGPT, Claude, Gemini, Perplexity, and Grok inside it.
 
-kvsdileep's Model Council adds rounds, disagreement checks, verdict tables, and JSON retry. Open Model Council adds a Perplexity-style interface.
+Those tabs become council seats.
 
-The lesson: hard questions need dissent before synthesis.
+Assign roles: Member, Judge, Validator, Observer, or Exclude.
 
-Tab Council brings that pattern to the browser you already use. Put ChatGPT, Claude, Gemini, Perplexity, and Grok in a Chrome group named tab-council.
+Round one asks every member for an independent answer. Round two shares the answers and asks for polite critique. If disagreement remains, Round three asks for final positions.
 
-Pick roles, run the prompt, watch critique, repair broken JSON, then ratify or veto the verdict.
+Structured JSON keeps the side panel reliable. JSON repair fixes almost-valid model output. The judge writes a verdict table with agreement, disagreement, confidence, and reasoning trace.
 
-No new API account. No backend. Your tabs become the council.
+Then Ratify or Veto lets validators challenge the final answer before you trust it.
+
+No new API account. No backend. Runs in your logged-in tabs, stored locally in Chrome.

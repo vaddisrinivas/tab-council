@@ -10,7 +10,7 @@ No API keys. No backend. Your accounts, your tabs, your local Chrome storage.
 
 One model answer is useful. A small council is safer.
 
-Tab Council is built for launch reviews, product decisions, architecture checks, research synthesis, policy drafts, and any question where you want independent reasoning plus visible dissent before you trust the answer.
+Tab Council is browser-native: a Chrome extension that uses your already logged-in AI tabs as the council. It is built for launch reviews, product decisions, architecture checks, research synthesis, policy drafts, and any question where you want independent reasoning plus visible dissent before you trust the answer.
 
 ## v0.1.0-alpha
 
