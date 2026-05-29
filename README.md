@@ -10,11 +10,22 @@ No API keys. No backend. Your accounts, your tabs, your local Chrome storage.
 
 One model answer is useful. A small council is safer.
 
-Tab Council is browser-native: a Chrome extension that uses your already logged-in AI tabs as the council. It is built for launch reviews, product decisions, architecture checks, research synthesis, policy drafts, and any question where you want independent reasoning plus visible dissent before you trust the answer.
+There are already browser extensions that send one prompt to many AI tools and show the answers side by side. Tab Council is trying to do something narrower: run the full model-council workflow over the AI tabs you already have open.
+
+It is built for launch reviews, product decisions, architecture checks, research synthesis, policy drafts, and any question where you want independent reasoning plus visible dissent before you trust the answer.
+
+## What Makes It Different
+
+- **Uses existing AI tabs**: no OpenRouter setup, no provider API keys, no copied model roster.
+- **Starts from a Chrome tab group**: the tabs you group under `tab-council` are the council.
+- **Runs council rounds, not just broadcast**: independent answers, critique, disagreement check, optional final positions, synthesis.
+- **Has explicit roles**: Member, Judge, Validator, Observer, Exclude.
+- **Handles structured output**: JSON parsing, one repair pass, and loud failures instead of silent bad transcripts.
+- **Adds final review**: Ratify/Veto lets non-judge tabs challenge the synthesized verdict.
 
 ## v0.1.0-alpha
 
-This alpha focuses on browser-native orchestration:
+This alpha focuses on extension-based orchestration:
 
 - Detects the active Chrome tab group named `tab-council`.
 - Uses each grouped AI tab as an explicit model seat.
