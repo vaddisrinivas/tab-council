@@ -6,6 +6,10 @@ Tab Council is a Chrome MV3 extension for cross-checking important prompts acros
 
 No API keys. No backend. Your accounts, your tabs, your local Chrome storage.
 
+## Demo
+
+[Watch the v0.1.0-alpha demo video](https://github.com/vaddisrinivas/tab-council/releases/download/v0.1.0-alpha/tab-council-demo.mp4)
+
 ## Why It Exists
 
 One model answer is useful. A small council is safer.
