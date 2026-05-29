@@ -1,0 +1,78 @@
+name: Bug report
+description: Report a reproducible defect in Model Council
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please include enough detail to reproduce.
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      description: One-line description of the problem.
+      placeholder: Round 2 fails to parse JSON from one provider
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Exact steps, including tab setup and prompt.
+      placeholder: |
+        1. Open two provider tabs...
+        2. Group as model-council...
+        3. Run prompt...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: input
+    id: chrome
+    attributes:
+      label: Chrome version
+      placeholder: 126.0.x
+    validations:
+      required: true
+  - type: input
+    id: extension
+    attributes:
+      label: Extension version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: checkboxes
+    id: providers
+    attributes:
+      label: Affected providers
+      options:
+        - label: ChatGPT
+        - label: Claude
+        - label: Gemini
+        - label: Perplexity
+        - label: Merlin
+        - label: Grok
+        - label: Generic AI tab
+  - type: textarea
+    id: logs
+    attributes:
+      label: Side panel errors or run log excerpt
+      description: Paste non-sensitive logs only.
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: I removed secrets and personal data from this report.
+          required: true

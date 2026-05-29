@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Tab Council">
+  <rect width="128" height="128" rx="24" fill="#1f2937"/>
+  <circle cx="40" cy="44" r="14" fill="#8fb2ff"/>
+  <circle cx="88" cy="44" r="14" fill="#7dd3a8"/>
+  <circle cx="64" cy="84" r="14" fill="#f6c56d"/>
+  <path d="M49 51l12 22M79 51L67 73M52 84h24" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round"/>
+</svg>

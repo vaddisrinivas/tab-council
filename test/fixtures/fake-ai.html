@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fake AI</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 24px;
+        max-width: 760px;
+      }
+
+      textarea,
+      [contenteditable="true"] {
+        width: 100%;
+        min-height: 160px;
+        box-sizing: border-box;
+        border: 1px solid #8b95a7;
+        padding: 8px;
+      }
+
+      [data-model-council-response] {
+        border: 1px solid #ccd3df;
+        margin-top: 16px;
+        min-height: 120px;
+        padding: 12px;
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import {
+        providerIdFromPath,
+        renderFakeProviderBody,
+        wireFakeProviderPage
+      } from "./fake-provider-cases.mjs";
+
+      const params = new URLSearchParams(location.search);
+      const providerId = params.get("provider") || providerIdFromPath(location.pathname) || "chatgpt";
+      const mode = params.get("mode") || "normal";
+
+      document.querySelector("#app").innerHTML = renderFakeProviderBody({ providerId, mode });
+      wireFakeProviderPage({ providerId, mode });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./common.css">
+  </head>
+  <body>
+    <canvas id="mesh"></canvas>
+    <main class="stage">
+      <div class="brand floating"><div class="mark"></div><span>Ratify or Veto</span></div>
+      <h1 class="headline floating float2">Let validators challenge the final answer.</h1>
+      <p class="subhead floating float3">Ratify accepts the verdict. Veto names the exact clause that needs correction.</p>
+      <section class="verdict">
+        <article class="verdictMain panel floating">
+          <span class="tag">Validator pass</span>
+          <div class="ratifyList" style="margin-top:28px">
+            <div class="vote"><b>Perplexity</b><span>Verdict faithful to record.</span><span class="pill green">RATIFY</span></div>
+            <div class="vote"><b>Grok</b><span>Clause underrates UI drift risk.</span><span class="pill coral">VETO</span></div>
+            <div class="vote"><b>Gemini</b><span>Add explicit regression smoke test.</span><span class="pill green">RATIFY</span></div>
+          </div>
+        </article>
+        <article class="verdictMain panel floating float2">
+          <span class="tag">Revised clause</span>
+          <h2 style="margin-top:24px">Launch only after adapter failure states are tested provider by provider.</h2>
+        </article>
+      </section>
+    </main>
+    <script src="./common.js"></script>
+  </body>
+</html>

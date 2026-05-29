@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Council",
+  "description": "Turns a Chrome tab group named tab-council into a multi-model council.",
+  "version": "0.1.0",
+  "minimum_chrome_version": "116",
+  "permissions": [
+    "sidePanel",
+    "scripting",
+    "storage",
+    "tabGroups",
+    "tabs"
+  ],
+  "optional_host_permissions": [
+    "https://chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://claude.ai/*",
+    "https://gemini.google.com/*",
+    "https://perplexity.ai/*",
+    "https://www.perplexity.ai/*",
+    "https://getmerlin.in/*",
+    "https://www.getmerlin.in/*",
+    "https://extension.getmerlin.in/*",
+    "https://grok.com/*",
+    "https://x.com/*",
+    "https://x.ai/*",
+    "https://*.x.ai/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*"
+  ],
+  "action": {
+    "default_title": "Tab Council",
+    "default_icon": {
+      "16": "assets/generated-icons/icon-16.png",
+      "32": "assets/generated-icons/icon-32.png"
+    }
+  },
+  "icons": {
+    "16": "assets/generated-icons/icon-16.png",
+    "32": "assets/generated-icons/icon-32.png",
+    "48": "assets/generated-icons/icon-48.png",
+    "128": "assets/generated-icons/icon-128.png"
+  },
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "side_panel": {
+    "default_path": "src/sidepanel.html"
+  }
+}

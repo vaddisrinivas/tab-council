@@ -1,0 +1,73 @@
+{
+  "scenes": [
+    {
+      "custom_html": "./video/tab-council-demo/01-hook.html",
+      "narration": "Name a tab group tab-council. AI tabs become council.",
+      "voice": "andrew",
+      "duration": 6
+    },
+    {
+      "custom_html": "./video/tab-council-demo/02-risk.html",
+      "narration": "For launch reviews, one model misses edge cases.",
+      "voice": "andrew",
+      "duration": 6
+    },
+    {
+      "custom_html": "./video/tab-council-demo/03-providers.html",
+      "narration": "Use ChatGPT, Claude, Gemini, Perplexity, and Grok.",
+      "voice": "andrew",
+      "duration": 6
+    },
+    {
+      "custom_html": "./video/tab-council-demo/04-roles.html",
+      "narration": "Roles define automation: member, judge, validator, observer, exclude.",
+      "voice": "andrew",
+      "duration": 6
+    },
+    {
+      "custom_html": "./video/tab-council-demo/05-rounds.html",
+      "narration": "Round one is independent. Round two is polite critique.",
+      "voice": "andrew",
+      "duration": 6
+    },
+    {
+      "custom_html": "./video/tab-council-demo/06-round3.html",
+      "narration": "Disagreement triggers final positions before synthesis.",
+      "voice": "andrew",
+      "duration": 6
+    },
+    {
+      "custom_html": "./video/tab-council-demo/07-json.html",
+      "narration": "Strict JSON powers parsing. Repair tries once.",
+      "voice": "andrew",
+      "duration": 6
+    },
+    {
+      "custom_html": "./video/tab-council-demo/08-verdict.html",
+      "narration": "The judge produces verdict, dissent, confidence, trace.",
+      "voice": "andrew",
+      "duration": 6
+    },
+    {
+      "custom_html": "./video/tab-council-demo/09-ratify.html",
+      "narration": "Ratify accepts. Veto challenges weak clauses.",
+      "voice": "andrew",
+      "duration": 6
+    },
+    {
+      "custom_html": "./video/tab-council-demo/10-privacy-cta.html",
+      "narration": "No backend. No API keys. Install the alpha.",
+      "voice": "andrew",
+      "duration": 6
+    }
+  ],
+  "output": "./dist/tab-council-demo.mp4",
+  "width": 1920,
+  "height": 1080,
+  "fps": 24,
+  "voice": "andrew",
+  "transition": "crossfade",
+  "transition_duration": 0.35,
+  "background_music": "./video/tab-council-demo/ambient.wav",
+  "music_volume": 0.08
+}

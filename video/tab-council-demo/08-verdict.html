@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./common.css">
+  </head>
+  <body>
+    <canvas id="mesh"></canvas>
+    <main class="stage">
+      <div class="brand floating"><div class="mark"></div><span>Judge synthesis</span></div>
+      <h1 class="headline floating float2">One verdict, with dissent still visible.</h1>
+      <p class="subhead floating float3">The judge summarizes launch risk, agreement, disagreement, confidence, and the reasoning trace.</p>
+      <section class="verdict">
+        <article class="verdictMain panel floating">
+          <span class="tag">Final verdict</span>
+          <h2 style="margin-top:24px">Launch is plausible after three fixes.</h2>
+          <div class="riskTable">
+            <div class="riskRow"><b>Permission UX</b><span>Agree</span><span>4/5</span></div>
+            <div class="riskRow"><b>UI drift fallback</b><span>Disagree</span><span>3/5</span></div>
+            <div class="riskRow"><b>Privacy copy</b><span>Agree</span><span>5/5</span></div>
+          </div>
+        </article>
+        <article class="verdictMain panel floating float2">
+          <span class="tag">Trace</span>
+          <div class="riskTable">
+            <div class="riskRow"><b>Claude</b><span>Privacy</span><span>High</span></div>
+            <div class="riskRow"><b>ChatGPT</b><span>Onboarding</span><span>Medium</span></div>
+            <div class="riskRow"><b>Gemini</b><span>Testing</span><span>High</span></div>
+            <div class="riskRow"><b>Grok</b><span>Failure modes</span><span>High</span></div>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script src="./common.js"></script>
+  </body>
+</html>

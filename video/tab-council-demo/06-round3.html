@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./common.css">
+  </head>
+  <body>
+    <canvas id="mesh"></canvas>
+    <main class="stage">
+      <div class="brand floating"><div class="mark"></div><span>Disagreement-aware</span></div>
+      <h1 class="headline floating float2">When they still disagree, ask again.</h1>
+      <p class="subhead floating float3">Round 3 asks each member for a final position and the strongest disagreement it still holds.</p>
+      <section class="verdict">
+        <article class="verdictMain panel floating">
+          <span class="tag">Disagreement check</span>
+          <h2 style="margin-top:24px">Substantive disagreement remains.</h2>
+          <div class="riskTable">
+            <div class="riskRow"><b>Risk source</b><span>Claude</span><span>High</span></div>
+            <div class="riskRow"><b>Auth edge cases</b><span>ChatGPT</span><span>Medium</span></div>
+            <div class="riskRow"><b>Provider UI drift</b><span>Grok</span><span>High</span></div>
+          </div>
+        </article>
+        <article class="verdictMain panel floating float2">
+          <span class="tag">Round 3</span>
+          <h2 style="margin-top:24px">Final positions before the judge writes synthesis.</h2>
+        </article>
+      </section>
+    </main>
+    <script src="./common.js"></script>
+  </body>
+</html>

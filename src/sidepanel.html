@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tab Council</title>
+    <link rel="stylesheet" href="sidepanel.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Tab Council</p>
+          <h1 id="heading">No council</h1>
+        </div>
+        <button id="refresh" class="ghostButton" type="button">Refresh</button>
+      </header>
+
+      <section id="status" class="status"></section>
+
+      <section class="trustStrip" aria-label="Privacy and run posture">
+        <div>
+          <strong>Local-first</strong>
+          <span>Runs in your logged-in tabs. Transcript stays in Chrome storage.</span>
+        </div>
+        <div>
+          <strong>No API keys</strong>
+          <span>Uses the AI pages already open in the group.</span>
+        </div>
+      </section>
+
+      <section id="readiness" class="readiness"></section>
+
+      <section class="panel">
+        <div class="sectionHead">
+          <h2>Members</h2>
+          <span id="memberCount" class="meta">0 tabs</span>
+        </div>
+        <div id="members" class="members"></div>
+      </section>
+
+      <form id="runForm" class="panel runForm">
+        <label for="prompt">Prompt</label>
+        <textarea id="prompt" rows="7" placeholder="Ask the council..."></textarea>
+
+        <div class="controls">
+          <label for="councilMode">
+            Council mode
+            <select id="councilMode">
+              <option value="quick">Quick</option>
+              <option value="balanced">Balanced</option>
+              <option value="thorough">Thorough</option>
+              <option value="rigorous">Rigorous</option>
+            </select>
+          </label>
+
+          <label for="viewMode">
+            Output view
+            <select id="viewMode">
+              <option value="grid">Grid</option>
+              <option value="unified">Unified</option>
+              <option value="dissent">Dissent only</option>
+            </select>
+          </label>
+
+          <label class="checkRow">
+            <input id="forceRound3" type="checkbox">
+            <span>Force Round 3</span>
+          </label>
+
+          <label class="checkRow">
+            <input id="isolateThreads" type="checkbox" checked>
+            <span>Fresh threads</span>
+          </label>
+
+          <label class="checkRow">
+            <input id="includeRawInExport" type="checkbox">
+            <span>Raw export</span>
+          </label>
+
+          <label class="checkRow">
+            <input id="ratifyEnabled" type="checkbox">
+            <span>Ratify/Veto</span>
+          </label>
+
+          <label for="judgeMode">
+            Judge
+            <select id="judgeMode">
+              <option value="auto">Auto best</option>
+              <option value="manual">Selected tab</option>
+              <option value="all">All tabs</option>
+            </select>
+          </label>
+
+          <label id="judgeTabWrap" for="judgeTab">
+            Judge tab
+            <select id="judgeTab"></select>
+          </label>
+        </div>
+
+        <div class="buttonRow">
+          <button id="startRun" type="submit">Run Council</button>
+          <button id="abortRun" class="ghostButton" type="button">Abort</button>
+        </div>
+      </form>
+
+      <section class="panel">
+        <div class="sectionHead">
+          <h2>Run</h2>
+          <span id="phase" class="meta">idle</span>
+        </div>
+        <div id="progress" class="progress"></div>
+      </section>
+
+      <section class="panel workspace">
+        <div class="sectionHead">
+          <h2>Workspace</h2>
+          <span id="workspaceMeta" class="meta">overview</span>
+        </div>
+        <nav id="phaseTabs" class="phaseTabs" aria-label="Council phases"></nav>
+        <div id="phaseSummary" class="phaseSummary"></div>
+        <div id="phaseContent" class="phaseContent"></div>
+      </section>
+
+      <section class="panel">
+        <div class="sectionHead">
+          <h2>Run Library</h2>
+          <span id="historyCount" class="meta">0 runs</span>
+        </div>
+        <div id="history" class="history"></div>
+      </section>
+
+      <div class="buttonRow stickyActions">
+        <button id="rerunSynthesis" class="ghostButton" type="button">Rerun Synthesis</button>
+        <button id="clearRun" class="ghostButton" type="button">Clear Local</button>
+        <button id="exportRun" class="ghostButton" type="button">Export Markdown</button>
+      </div>
+    </main>
+    <script src="sidepanel.js" type="module"></script>
+  </body>
+</html>

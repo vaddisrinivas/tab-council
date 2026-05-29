@@ -1,0 +1,18 @@
+{
+  "name": "tab-council",
+  "version": "0.1.0",
+  "description": "Chrome MV3 extension that turns grouped AI tabs into a structured model council.",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "check": "npm test && npm run check:js && npm run validate:manifest",
+    "check:js": "node --check src/background.js && node --check src/contentScript.js && node --check src/sidepanel.js && node --check src/shared.js && node --check src/prompts.js && node --check scripts/serve-fake-ai.mjs",
+    "validate:manifest": "node -e \"JSON.parse(require('fs').readFileSync('manifest.json','utf8'))\"",
+    "test": "node --test",
+    "fake-ai": "node scripts/serve-fake-ai.mjs"
+  }
+}

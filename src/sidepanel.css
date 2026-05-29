@@ -1,0 +1,573 @@
+:root {
+  color-scheme: light dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f6f3ee;
+  color: #20222a;
+  --bg: #f6f3ee;
+  --surface: #fffdf8;
+  --surface-2: #f2eee5;
+  --line: #d9d0c1;
+  --line-strong: #b9ab98;
+  --text: #20222a;
+  --muted: #6f6a61;
+  --accent: #7f1d1d;
+  --accent-2: #215f6d;
+  --good: #146c43;
+  --warn: #95620f;
+  --bad: #a22a2a;
+  --focus: #325fbd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+button,
+textarea,
+select,
+input,
+summary {
+  font: inherit;
+}
+
+button,
+select,
+textarea {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+button,
+select {
+  min-height: 34px;
+  padding: 0 11px;
+}
+
+button {
+  cursor: pointer;
+  font-weight: 760;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+textarea {
+  width: 100%;
+  min-height: 128px;
+  resize: vertical;
+  padding: 10px;
+  line-height: 1.45;
+}
+
+select {
+  width: 100%;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 760;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 22px;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: 14px;
+}
+
+h3 {
+  font-size: 13px;
+}
+
+.shell {
+  min-height: 100vh;
+  padding: 14px;
+}
+
+.topbar,
+.sectionHead,
+.buttonRow,
+.memberTop,
+.outputTop,
+.verdictTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  padding: 10px 0 12px;
+  background: var(--bg);
+}
+
+.eyebrow {
+  margin: 0 0 2px;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 860;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.ghostButton {
+  background: transparent;
+}
+
+.status,
+.panel,
+.output,
+.readyItem,
+.trustStrip,
+.metricCard,
+.historyItem,
+.verdictHero,
+.callout,
+.emptyState {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.status {
+  padding: 10px 12px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.trustStrip {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  margin-top: 10px;
+  padding: 10px;
+  background: #f9f4e9;
+}
+
+.trustStrip div {
+  display: grid;
+  gap: 2px;
+}
+
+.trustStrip strong {
+  color: var(--accent-2);
+  font-size: 12px;
+}
+
+.trustStrip span {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.panel {
+  margin-top: 12px;
+  padding: 12px;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.wrap {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.members,
+.progress,
+.readiness,
+.history,
+.phaseContent,
+.phaseSummary {
+  display: grid;
+  gap: 10px;
+}
+
+.members {
+  margin-top: 10px;
+}
+
+.readiness {
+  margin-top: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.readyItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.readyMark {
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: #e7f7ec;
+  color: var(--good);
+  padding: 2px 7px;
+  font-size: 10px;
+  font-weight: 860;
+}
+
+.readyItem.warn .readyMark {
+  background: #fff0cb;
+  color: var(--warn);
+}
+
+.member {
+  display: grid;
+  gap: 6px;
+  border: 1px solid #e5ddd0;
+  border-radius: 8px;
+  padding: 10px;
+  background: #fffaf0;
+}
+
+.memberName,
+.outputTitle {
+  overflow-wrap: anywhere;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.pill {
+  border-radius: 999px;
+  padding: 3px 8px;
+  background: #e8edf7;
+  color: var(--focus);
+  font-size: 10px;
+  font-weight: 860;
+  white-space: nowrap;
+}
+
+.pill.ready,
+.pill.valid {
+  background: #e7f7ec;
+  color: var(--good);
+}
+
+.pill.blocked,
+.pill.failed {
+  background: #ffe5df;
+  color: var(--bad);
+}
+
+.pill.running,
+.pill.repaired,
+.pill.raw {
+  background: #fff0cb;
+  color: var(--warn);
+}
+
+.pill.observer,
+.pill.exclude {
+  background: #eee9df;
+  color: var(--muted);
+}
+
+.pill.metric {
+  background: #eef5f6;
+  color: var(--accent-2);
+}
+
+.runForm {
+  gap: 10px;
+}
+
+.roleSelect {
+  margin-top: 2px;
+}
+
+.controls {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.checkRow {
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 760;
+}
+
+.buttonRow {
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.buttonRow button {
+  flex: 1 1 160px;
+}
+
+.progress {
+  margin-top: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.step {
+  display: grid;
+  gap: 4px;
+  border-left: 3px solid var(--line-strong);
+  padding-left: 10px;
+}
+
+.workspace {
+  padding-bottom: 14px;
+}
+
+.phaseTabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 10px 0 4px;
+}
+
+.phaseTab {
+  flex: 0 0 auto;
+  min-height: 32px;
+  background: var(--surface-2);
+  color: var(--muted);
+}
+
+.phaseTab.active {
+  border-color: var(--accent);
+  background: #fff2e8;
+  color: var(--accent);
+}
+
+.phaseSummary {
+  margin-top: 8px;
+}
+
+.phaseContent {
+  margin-top: 10px;
+}
+
+.phaseContent.grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.phaseContent.unified {
+  grid-template-columns: 1fr;
+}
+
+.metrics,
+.phaseDeck {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(116px, 1fr));
+}
+
+.metricCard {
+  display: grid;
+  gap: 4px;
+  padding: 10px;
+}
+
+.metricCard strong {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.metricCard span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.metricCard.good {
+  border-color: #a8d9b9;
+}
+
+.metricCard.warn {
+  border-color: #e5bd66;
+}
+
+.verdictHero {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border-color: #b98777;
+  background: #fff7ee;
+}
+
+.verdictHero p {
+  color: #3b342d;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.callout,
+.emptyState {
+  padding: 11px 12px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.callout {
+  border-left: 4px solid var(--accent-2);
+}
+
+.output {
+  padding: 12px;
+}
+
+.output.hasDissent {
+  border-color: #d39a72;
+}
+
+.outputBody {
+  margin-top: 8px;
+  max-height: 360px;
+  overflow: auto;
+  color: #3c3832;
+  font-size: 12px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.unifiedOutput .outputBody {
+  max-height: 620px;
+}
+
+.history {
+  margin-top: 10px;
+}
+
+.historyItem {
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+}
+
+.historyAnswer {
+  color: #3c3832;
+  font-size: 12px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.stickyActions {
+  position: sticky;
+  bottom: 0;
+  z-index: 4;
+  padding: 10px 0;
+  background: var(--bg);
+}
+
+@media (max-width: 640px) {
+  .shell {
+    padding: 10px;
+  }
+
+  .controls,
+  .progress,
+  .phaseContent.grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    background: #171412;
+    color: #f7f0e6;
+    --bg: #171412;
+    --surface: #211d1a;
+    --surface-2: #2b2520;
+    --line: #4b4138;
+    --line-strong: #766656;
+    --text: #f7f0e6;
+    --muted: #c9bcaa;
+    --accent: #f0a18e;
+    --accent-2: #8cc9d6;
+    --good: #7ad69b;
+    --warn: #f3bf67;
+    --bad: #ff9a8f;
+    --focus: #9db8ff;
+  }
+
+  .topbar,
+  .stickyActions {
+    background: var(--bg);
+  }
+
+  button,
+  select,
+  textarea,
+  .status,
+  .readyItem,
+  .panel,
+  .member,
+  .output,
+  .historyItem,
+  .metricCard,
+  .emptyState {
+    background: var(--surface);
+    color: var(--text);
+    border-color: var(--line);
+  }
+
+  .trustStrip,
+  .verdictHero {
+    background: #241d18;
+  }
+
+  .ghostButton {
+    background: transparent;
+  }
+
+  .phaseTab {
+    background: var(--surface-2);
+  }
+
+  .phaseTab.active {
+    background: #33221e;
+  }
+
+  .verdictHero p,
+  .historyAnswer,
+  .outputBody {
+    color: #efe6da;
+  }
+}
