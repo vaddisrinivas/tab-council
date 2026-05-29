@@ -1,0 +1,13 @@
+On GitHub, every model-council project tells the same story: one prompt is not enough.
+
+Karpathy's LLM Council sends a question to several models, asks them to review each other, then lets a chairman write the final answer.
+
+kvsdileep's Model Council adds rounds, disagreement checks, verdict tables, and JSON retry. Open Model Council adds a Perplexity-style interface.
+
+The lesson: hard questions need dissent before synthesis.
+
+Tab Council brings that pattern to the browser you already use. Put ChatGPT, Claude, Gemini, Perplexity, and Grok in a Chrome group named tab-council.
+
+Pick roles, run the prompt, watch critique, repair broken JSON, then ratify or veto the verdict.
+
+No new API account. No backend. Your tabs become the council.

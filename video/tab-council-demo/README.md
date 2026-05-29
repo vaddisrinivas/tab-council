@@ -9,3 +9,5 @@ uv run --project /tmp/framecraft-tab-council python /tmp/framecraft-tab-council/
 ```
 
 The release demo asset was rendered from HTML/CSS/Canvas scenes only. No screenshots were used.
+
+The revised story narration lives in `story-narration.txt`. The current release audio was generated locally with Kokoro ONNX and mixed over the Framecraft-rendered video.

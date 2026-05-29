@@ -12,6 +12,7 @@ First public alpha for Tab Council, a Chrome MV3 extension that turns a Chrome t
 - Adds one JSON repair prompt for almost-valid model output.
 - Stores run state and history locally in Chrome storage only.
 - Exports Markdown locally from the side panel.
+- Includes a canvas-only demo video with locally generated story narration.
 
 ## Install
 
