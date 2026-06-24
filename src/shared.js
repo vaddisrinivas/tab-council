@@ -5,6 +5,12 @@ export const RUN_HISTORY_KEY = "runHistory";
 export const USER_SETTINGS_KEY = "userSettings";
 export const RUN_PORT_NAME = "model-council-run";
 export const CONTENT_SCRIPT_FILE = "src/contentScript.js";
+export const EXTERNAL_API_VERSION = 1;
+
+export const EXTERNAL_MESSAGE_TYPES = {
+  GET_STATE: "TC_GET_STATE",
+  PREPARE_COUNCIL: "TC_PREPARE_COUNCIL"
+};
 
 export const MEMBER_ROLES = {
   MEMBER: "member",
@@ -110,6 +116,16 @@ export const GENERIC_PROVIDER = {
 
 export function normalizeGroupTitle(title = "") {
   return title.trim().toLowerCase();
+}
+
+export function normalizeExternalApiMessage(message = {}) {
+  if (!message || typeof message !== "object") return null;
+  const type = typeof message.type === "string" ? message.type : "";
+  if (!Object.values(EXTERNAL_MESSAGE_TYPES).includes(type)) return null;
+  const payload = message.payload && typeof message.payload === "object" && !Array.isArray(message.payload)
+    ? message.payload
+    : {};
+  return { type, payload };
 }
 
 export function isCouncilGroup(group) {

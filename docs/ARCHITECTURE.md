@@ -10,6 +10,7 @@ Tab Council is a Chrome MV3 extension.
 - `src/sidepanel.*`: operator UI, permission request, run controls, transcript/export display.
 - `src/prompts.js`: council prompt builders and Markdown export.
 - `src/shared.js`: provider registry, settings, structured parsing, helper contracts.
+- External API: companion extensions can read/refresh active council state through `TC_GET_STATE` and `TC_PREPARE_COUNCIL`.
 
 ## Run Flow
 

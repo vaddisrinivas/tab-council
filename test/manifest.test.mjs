@@ -11,6 +11,7 @@ test("manifest keeps host permissions narrow and icons present", async () => {
   assert.ok(origins.includes("https://chatgpt.com/*"));
   assert.ok(origins.includes("https://extension.getmerlin.in/*"));
   assert.ok(origins.includes("http://localhost/*"));
+  assert.deepEqual(manifest.externally_connectable?.ids, ["*"]);
 
   for (const iconPath of Object.values(manifest.icons ?? {})) {
     await access(new URL(`../${iconPath}`, import.meta.url));
