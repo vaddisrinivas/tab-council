@@ -146,6 +146,7 @@ Read more in [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md).
 - [Privacy](./PRIVACY.md)
 - [Architecture](./docs/ARCHITECTURE.md)
 - [Compatibility Matrix](./docs/COMPATIBILITY.md)
+- [External API](./docs/EXTERNAL_API.md)
 - [Contributing](./CONTRIBUTING.md)
 - [Security](./SECURITY.md)
 - [License](./LICENSE)

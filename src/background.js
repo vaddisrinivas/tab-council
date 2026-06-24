@@ -3,6 +3,8 @@ import {
   ANSWER_TIMEOUT_MS,
   CONTENT_SCRIPT_FILE,
   CURRENT_RUN_KEY,
+  EXTERNAL_API_VERSION,
+  EXTERNAL_MESSAGE_TYPES,
   JUDGE_TIMEOUT_MS,
   NAVIGATION_TIMEOUT_MS,
   RUN_HISTORY_KEY,
@@ -20,6 +22,7 @@ import {
   isValidatorRole,
   isCouncilGroup,
   isInjectableUrl,
+  normalizeExternalApiMessage,
   normalizeSettings,
   parseCouncilOutput,
   parseDisagreement,
@@ -264,6 +267,51 @@ async function getState(options = {}) {
   const settings = await getSettings();
   const { [RUN_HISTORY_KEY]: history = [] } = await chrome.storage.local.get(RUN_HISTORY_KEY);
   return { activeCouncil, run, settings, history };
+}
+
+function compactExternalCouncil(activeCouncil) {
+  if (!activeCouncil) return null;
+  return {
+    groupId: activeCouncil.groupId,
+    windowId: activeCouncil.windowId,
+    title: activeCouncil.title,
+    color: activeCouncil.color,
+    tabCount: activeCouncil.tabs?.length ?? 0,
+    providers: [...new Set((activeCouncil.tabs ?? []).map((tab) => tab.providerId).filter(Boolean))],
+    updatedAt: activeCouncil.updatedAt
+  };
+}
+
+async function handleExternalApiMessage(message) {
+  const normalized = normalizeExternalApiMessage(message);
+  if (!normalized) return { ok: false, error: "Unsupported Tab Council external message." };
+
+  const { type, payload } = normalized;
+  if (payload.groupName && !isCouncilGroup({ title: payload.groupName })) {
+    return { ok: false, apiVersion: EXTERNAL_API_VERSION, error: 'Tab Council only supports the "tab-council" group.' };
+  }
+
+  if (type === EXTERNAL_MESSAGE_TYPES.GET_STATE) {
+    const state = await getState(payload);
+    return {
+      ok: true,
+      apiVersion: EXTERNAL_API_VERSION,
+      activeCouncil: compactExternalCouncil(state.activeCouncil),
+      runStatus: state.run?.status ?? null,
+      runPhase: state.run?.phase ?? null
+    };
+  }
+
+  if (type === EXTERNAL_MESSAGE_TYPES.PREPARE_COUNCIL) {
+    const activeCouncil = await scanForCouncilGroup(payload.windowId);
+    return {
+      ok: true,
+      apiVersion: EXTERNAL_API_VERSION,
+      activeCouncil: compactExternalCouncil(activeCouncil)
+    };
+  }
+
+  return { ok: false, apiVersion: EXTERNAL_API_VERSION, error: "Unsupported Tab Council external message." };
 }
 
 async function ensureContentScript(member) {
@@ -1013,6 +1061,17 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   }
 
   return false;
+});
+
+chrome.runtime.onMessageExternal?.addListener((message, _sender, sendResponse) => {
+  handleExternalApiMessage(message)
+    .then((response) => sendResponse(response))
+    .catch((error) => sendResponse({
+      ok: false,
+      apiVersion: EXTERNAL_API_VERSION,
+      error: error instanceof Error ? error.message : String(error)
+    }));
+  return true;
 });
 
 chrome.runtime.onConnect.addListener((port) => {

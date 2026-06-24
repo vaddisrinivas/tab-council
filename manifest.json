@@ -45,6 +45,9 @@
     "service_worker": "src/background.js",
     "type": "module"
   },
+  "externally_connectable": {
+    "ids": ["*"]
+  },
   "side_panel": {
     "default_path": "src/sidepanel.html"
   }

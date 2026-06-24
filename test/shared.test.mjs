@@ -6,6 +6,7 @@ import {
   detectProviderFromUrl,
   getNewThreadUrl,
   isCouncilGroup,
+  normalizeExternalApiMessage,
   normalizeSettings,
   roleForTab,
   isRoundRole,
@@ -21,6 +22,19 @@ test("normalizes tab-council tab group names", () => {
   assert.equal(isCouncilGroup({ title: "  TAB-COUNCIL  " }), true);
   assert.equal(isCouncilGroup({ title: "tab council" }), false);
   assert.equal(isCouncilGroup({ title: "model-council" }), false);
+});
+
+test("normalizes external API messages", () => {
+  assert.deepEqual(normalizeExternalApiMessage({ type: "TC_GET_STATE", payload: { windowId: 1 } }), {
+    type: "TC_GET_STATE",
+    payload: { windowId: 1 }
+  });
+  assert.deepEqual(normalizeExternalApiMessage({ type: "TC_PREPARE_COUNCIL" }), {
+    type: "TC_PREPARE_COUNCIL",
+    payload: {}
+  });
+  assert.equal(normalizeExternalApiMessage({ type: "UNKNOWN" }), null);
+  assert.equal(normalizeExternalApiMessage(null), null);
 });
 
 test("detects known providers and generic AI tabs by URL", () => {
